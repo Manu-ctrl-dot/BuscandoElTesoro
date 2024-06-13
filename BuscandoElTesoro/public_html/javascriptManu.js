@@ -3,7 +3,7 @@ class EscenaInicial extends Phaser.Scene {
     preload() {
         resize();
         window.addEventListener('resize', resize);
-        this.load.image('imagenes', 'imagenes/granja.jpg');
+        this.load.image('EscenaInicial', 'imagenes/EscenaInicial.jpg');
     }
     
     create() {
@@ -35,9 +35,21 @@ class EscenaInicial extends Phaser.Scene {
         }else if(opcio.name === 'htp'){
             this.scene.start('EscenaHTP');
         }else if(opcio.name === 'salir'){
-            this.scene.start('EscenaSalir');
+            this.scene.start('EscenaFinal');
         }
     }
+}
+
+class EscenaHTP extends Phaser.Scene {
+
+    constructor() {
+        super({key: 'EscenaHTP'});
+    }
+
+    preload() {
+        this.load.image('HTP', 'imagenes/HTP.jpg');
+    }
+    
 }
 
 class EscenaGranja extends Phaser.Scene {
@@ -47,7 +59,7 @@ class EscenaGranja extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('granja', 'imagenes/granja.jpg');
+        this.load.image('granja', 'imagenes/granja1.jpg');
     }
 
 create() {
@@ -85,7 +97,7 @@ class EscenaGranja2Objeto1 extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('granja', 'imagenes/granja.jpg');
+        this.load.image('granja2', 'imagenes/granja2.jpg');
     }
 
 create() {
@@ -114,7 +126,7 @@ class EscenaGranja2Objeto2 extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('granja', 'imagenes/granja.jpg');
+        this.load.image('granja3', 'imagenes/granja3.jpg');
     }
 
 create() {
@@ -152,7 +164,7 @@ create() {
     width: 960,
     height: 640,
     
-    scene: [EscenaInicial, EscenaGranja, EscenaGranja2Objeto1, EscenaGranja2Objeto2],
+    scene: [EscenaInicial, EscenaHPT, EscenaGranja, EscenaGranja2Objeto1, EscenaGranja2Objeto2],
 };
 
     new Phaser.Game(config);
